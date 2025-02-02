@@ -1,0 +1,22 @@
+export type Broker1Data = {
+  PolicyNumber: string,
+  InsuredAmount: number,
+  StartDate: string,
+  EndDate: string,
+  AdminFee: number,
+  BusinessDescription: string,
+  BusinessEvent: string,
+  ClientType: "Corporate" | "Individual",
+  ClientRef: string,
+  Commission: number,
+  EffectiveDate: Date,
+  InsurerPolicyNumber: string,
+  IPTAmount: number,
+  Premium: number,
+  PolicyFee: number,
+  PolicyType: "Property" | "Auto" | "Health",
+  Insurer: string,
+  Product: string,
+  RenewalDate: string,
+  RootPolicyRef: string
+}
