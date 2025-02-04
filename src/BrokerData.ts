@@ -17,6 +17,8 @@ export default class BrokerData {
   PolicyType: "Property" | "Auto" | "Health";
   Insurer: string;
   Product: string;
+  Broker: "Broker 1" | "Broker 2";
+  BrokerID: 1 | 2
 
   constructor(data: Broker1Data | Broker2Data, broker: string) {
     switch(broker) {
@@ -44,6 +46,8 @@ export default class BrokerData {
     this.PolicyType = data.PolicyType;
     this.Insurer = data.Insurer;
     this.Product = data.Product;
+    this.Broker = "Broker 1";
+    this.BrokerID = 1;
   }
 
   private normaliseBroker2(data: Broker2Data) {
@@ -62,6 +66,8 @@ export default class BrokerData {
     this.PolicyType = data.ContractCategory;
     this.Insurer = data.Underwriter;
     this.Product = data.InsurancePlan;
+    this.Broker = "Broker 2";
+    this.BrokerID = 2;
   }
 
   private parseBritishDate(britishDate: string): Date {
@@ -71,7 +77,7 @@ export default class BrokerData {
   }
 
   private parseBusinessEvent(be: string) {
-    if (be === "New Business" || be === "New Contract" || be === "Policy Initialisation") {
+    if (be === "New Business" || be === "New Contract" || be === "Policy Initiation") {
       return "New Business"
     } else if (be === "Policy Renewal" || be === "Renewal" || be === "Policy Update" || be === "Contract Renewal") {
       return "Renewal"
