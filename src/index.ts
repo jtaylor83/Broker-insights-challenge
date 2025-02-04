@@ -5,12 +5,15 @@ import InsightReporter from "./InsightReporter";
 const readline = require('node:readline')
 const fs = require('fs');
 let records: Array<BrokerData> = [];
-var reader = readline.createInterface({
+const reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-
+/**
+ * reads the data relating to a broker from a csv file
+ * @param broker name of the csv file
+ */
 function readCsvData(broker: string) {
   const data = fs.readFileSync(`data/${broker}.csv`)
 
@@ -25,13 +28,23 @@ function readCsvData(broker: string) {
   }
 }
 
+/**
+ * Entry point for program
+ */
 function main() {
+  //read data from brokers 1 and 2
   readCsvData("broker1");
   readCsvData("broker2");
+
+  //instantiate an insight reporter
   let insightReporter = new InsightReporter(records);
+
+  //output insights
   console.log("number of policies: " + insightReporter.numOfPolicies())
   console.log("number of customers: " + insightReporter.numOfCustomers())
   console.log("average duration of active policies (days) : " + insightReporter.averageDaysForActivePolicies())
+
+  //ask user for broker
   reader.question("Please enter a broker name or ID: ", nameOrId => {
     console.log("Policies with that broker: ");
     const policies = insightReporter.queryBroker(nameOrId);
