@@ -9,7 +9,7 @@ export type Broker1Data = {
   ClientType: "Corporate" | "Individual",
   ClientRef: string,
   Commission: number,
-  EffectiveDate: Date,
+  EffectiveDate: string,
   InsurerPolicyNumber: string,
   IPTAmount: number,
   Premium: number,

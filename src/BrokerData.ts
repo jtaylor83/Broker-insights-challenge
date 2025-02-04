@@ -55,14 +55,14 @@ export default class BrokerData {
     this.InsuredAmount = data.CoverageAmount;
     this.StartDate = this.parseBritishDate(data.InitiationDate);
     this.EndDate = this.parseBritishDate(data.ExpirationDate);
-    this.AdminFee = data.BrokerFee;
+    this.AdminFee = data.AdminCharges;
     this.BusinessDescription = data.CompanyDescription;
     this.BusinessEvent = this.parseBusinessEvent(data.ContractEvent);
     this.ClientType = data.ConsumerCategory;
     this.Commission = data.BrokerFee;
     this.IPTAmount = data.TaxAmount;
     this.Premium = data.CoverageCost;
-    this.PolicyFee = data.CoverageAmount;
+    this.PolicyFee = data.ContractFee;
     this.PolicyType = data.ContractCategory;
     this.Insurer = data.Underwriter;
     this.Product = data.InsurancePlan;
